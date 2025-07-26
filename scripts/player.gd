@@ -1,11 +1,16 @@
 extends CharacterBody2D
 
 @export var speed = 400
+var target
 
-func get_input():
-	var input_direction = Input.get_vector("left","right","up","down")
-	velocity = input_direction * speed
+func _ready():
+	target = global_position
+
+func _input(event):
+	if event.is_action_pressed("click"):
+		target = get_global_mouse_position()
 
 func _physics_process(delta: float) -> void:
-	get_input()
-	move_and_slide()
+	velocity = global_position.direction_to(target) * speed
+	if global_position.distance_to(target) > 10:
+		move_and_slide()
