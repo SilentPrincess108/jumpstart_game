@@ -1,17 +1,20 @@
 extends CharacterBody2D
 
-@export var speed = 400
 
-var click_position = Vector2()
-var target_position = Vector2()
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
 
-func _input(event):
-	if event.is_action_pressed("click"):
-		click_position = get_global_mouse_position()
+func get_input():
+	# Get the input direction and handle the movement/deceleration.
+	var direction = Input.get_axis("left", "right")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if Input.is_action_pressed("click"):
+		print("Clicked!")
 
 func _physics_process(delta: float) -> void:
-	if position.distance_to(click_position) > 3:
-		target_position = (click_position - position).normalized()
-		velocity = target_position * speed
-		move_and_slide()
-		
+	get_input()
+	move_and_slide()

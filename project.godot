@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Get_Out"
-run/main_scene="uid://bpwosg0pd0ftg"
+run/main_scene="uid://baxpx50ne2e6i"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
