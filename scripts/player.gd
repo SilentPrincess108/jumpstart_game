@@ -1,20 +1,24 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-func get_input():
-	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if Input.is_action_pressed("click"):
-		print("Clicked!")
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready() -> void:
+	position = Vector2(600, 300)
 
 func _physics_process(delta: float) -> void:
-	get_input()
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	get_input(Input, delta)
+
+func get_input(event, delta):
+	#Check for movement
+	if event.is_action_pressed("left"):
+		position.x -= SPEED * delta
+		print("left")
+	elif event.is_action_pressed("right"):
+		position.x += SPEED * delta
+		print("right")
 	move_and_slide()
