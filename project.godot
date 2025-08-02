@@ -15,6 +15,10 @@ run/main_scene="uid://baxpx50ne2e6i"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PopUps="*res://scenes/pop_ups.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
