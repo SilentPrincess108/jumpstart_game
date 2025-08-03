@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PopUps="*res://scenes/pop_ups.tscn"
+PossessionManager="*res://scripts/PossessionManager.gd"
 
 [display]
 

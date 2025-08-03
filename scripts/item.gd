@@ -18,7 +18,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready() -> void:
 	hover_area.mouse_entered.connect(_on_mouse_entered)
 	hover_area.mouse_exited.connect(_on_mouse_exited)
-	pop_ups.item_possessed.connect(possessed)
 	
 func _physics_process(delta: float) -> void:
 	if is_possessed:
@@ -31,9 +30,6 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	PopUps.HideItemPopup()
-
-func possessed():
-	is_possessed = true
 
 func get_input(event, delta):
 	#Check for movement
