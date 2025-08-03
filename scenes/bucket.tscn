@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6swdlqevgmh0"]
+
+[ext_resource type="Script" uid="uid://cmdg3v50ru8hb" path="res://scripts/item.gd" id="1_4mj0c"]
+[ext_resource type="Texture2D" uid="uid://c3qfpguimpsgk" path="res://assets/sprites/bucket.png" id="2_4mj0c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpkb6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mj0c"]
+
+[node name="bucket" type="CharacterBody2D"]
+position = Vector2(6, -5)
+script = ExtResource("1_4mj0c")
+item_name = "Bucket"
+item_desc = "This is supposed to be a bucket"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 5)
+shape = SubResource("RectangleShape2D_qpkb6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, 5)
+scale = Vector2(0.0205077, 0.0205077)
+texture = ExtResource("2_4mj0c")
+
+[node name="HoverArea" type="Area2D" parent="."]
+position = Vector2(-6, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+shape = SubResource("RectangleShape2D_4mj0c")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

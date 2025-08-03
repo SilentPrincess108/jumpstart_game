@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://s8kvtdt24idp"]
+[gd_scene load_steps=7 format=3 uid="uid://s8kvtdt24idp"]
 
 [ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://c6swdlqevgmh0" path="res://scenes/bucket.tscn" id="2_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://b4ydnvu4dbdbg" path="res://assets/sprites/tile.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dgjejad00rb20" path="res://scenes/bot.tscn" id="3_w8frs"]
 
@@ -20,8 +21,11 @@ sources/0 = SubResource("TileSetAtlasSource_w8frs")
 [node name="bot" parent="Items" instance=ExtResource("3_w8frs")]
 position = Vector2(758, 482)
 
+[node name="bucket" parent="Items" instance=ExtResource("2_mx8sn")]
+z_index = -1
+position = Vector2(310, 497)
+
 [node name="player" parent="." instance=ExtResource("1_2q6dc")]
-z_index = 1
 position = Vector2(504, 320)
 
 [node name="Camera2D" type="Camera2D" parent="player"]

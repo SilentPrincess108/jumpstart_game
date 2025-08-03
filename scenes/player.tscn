@@ -7,6 +7,7 @@
 size = Vector2(62, 61)
 
 [node name="player" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(254, 363)
 script = ExtResource("1_g2els")
 
