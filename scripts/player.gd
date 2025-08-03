@@ -17,8 +17,6 @@ func get_input(event, delta):
 	#Check for movement
 	if event.is_action_pressed("left"):
 		position.x -= SPEED * delta
-		print("left")
 	elif event.is_action_pressed("right"):
 		position.x += SPEED * delta
-		print("right")
 	move_and_slide()
