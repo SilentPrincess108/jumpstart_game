@@ -21,6 +21,7 @@ sources/0 = SubResource("TileSetAtlasSource_w8frs")
 position = Vector2(758, 482)
 
 [node name="player" parent="." instance=ExtResource("1_2q6dc")]
+z_index = 1
 position = Vector2(504, 320)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
