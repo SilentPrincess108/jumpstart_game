@@ -3,6 +3,8 @@ extends CharacterBody2D
 #var to connect to area2d for hover detect
 @onready var pop_ups: Control = get_node("/root/PopUps")
 @onready var hover_area: Area2D = $HoverArea
+@onready var sprite: Sprite2D = $Sprite2D
+
 
 #vars for item data
 @export var item_name: String = "Name"
@@ -37,6 +39,8 @@ func get_input(event, delta):
 	#Check for movement
 	if event.is_action_pressed("left"):
 		position.x -= SPEED * delta
+		sprite.flip_h = true
 	elif event.is_action_pressed("right"):
 		position.x += SPEED * delta
+		sprite.flip_h = false
 	move_and_slide()

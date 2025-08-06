@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@onready var player = $Sprite2D
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var possessing = false
 
@@ -28,6 +30,8 @@ func get_input(event, delta):
 	#Check for movement
 	if event.is_action_pressed("left"):
 		position.x -= SPEED * delta
+		player.flip_h = true
 	elif event.is_action_pressed("right"):
 		position.x += SPEED * delta
+		player.flip_h = false
 	move_and_slide()
