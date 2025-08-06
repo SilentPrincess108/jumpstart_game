@@ -3,6 +3,7 @@ extends Control
 @onready var item: Label = %Name
 @onready var info: Label = %Desc
 var current_target = null #to track hovered object
+signal item_possessed
 
 func ItemPopUp(item_name, desc, target):
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -17,6 +18,11 @@ func HideItemPopup():
 
 func _process(_delta: float) -> void:
 	if current_target and Input.is_action_just_pressed("Possess"):
-		print("Item possessed")
-		current_target.is_possessed = true
-		HideItemPopup()
+		if PossessionManager.selected_object == null:
+			print("Item possessed")
+			current_target.possessed = true
+			PossessionManager.selected_object = current_target
+			HideItemPopup()
+	elif current_target == PossessionManager.selected_object and Input.is_action_just_pressed("De-possess"):
+		current_target.possessed = false
+		PossessionManager.selected_object = null

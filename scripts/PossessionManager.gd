@@ -1,10 +1,4 @@
 extends Node
 
-var current_possessed: CharacterBody2D = null
-
-func possess(target):
-	if current_possessed:
-		current_possessed.is_possessed = false
-	
-	current_possessed = target
-	current_possessed.is_possessed = true
+var selected_object #used to track which item is selected
+var active_object

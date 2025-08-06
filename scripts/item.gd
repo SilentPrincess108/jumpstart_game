@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var item_desc: String = "This is an item"
 
 #var for whether this object is possessed or not
-var is_possessed: bool = false
+var possessed: bool = false
 
 #var for speed and gravity
 const SPEED = 300.0
@@ -20,13 +20,15 @@ func _ready() -> void:
 	hover_area.mouse_exited.connect(_on_mouse_exited)
 	
 func _physics_process(delta: float) -> void:
-	if is_possessed:
+	if possessed:
 		if not is_on_floor():
 			velocity.y += gravity * delta
 		get_input(Input, delta)
 
 func _on_mouse_entered() -> void:
 	PopUps.ItemPopUp(item_name, item_desc, self)
+	#if Input.is_action_just_pressed("Possess"):
+		#PossessionManager.selected_object = self #sets object as possessed
 
 func _on_mouse_exited() -> void:
 	PopUps.HideItemPopup()

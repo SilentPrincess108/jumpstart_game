@@ -11,7 +11,7 @@
 position = Vector2(6, -5)
 script = ExtResource("1_4mj0c")
 item_name = "Bucket"
-item_desc = "This is supposed to be a bucket"
+item_desc = "A red bucket that smells weird"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 5)
