@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://s8kvtdt24idp"]
+[gd_scene load_steps=8 format=3 uid="uid://s8kvtdt24idp"]
 
 [ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://c6swdlqevgmh0" path="res://scenes/bucket.tscn" id="2_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://b4ydnvu4dbdbg" path="res://assets/sprites/tile.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dgjejad00rb20" path="res://scenes/bot.tscn" id="3_w8frs"]
+[ext_resource type="Script" uid="uid://dajbhrwpr1nd1" path="res://scripts/camera.gd" id="5_ppgk2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("2_w7c3h")
@@ -28,10 +29,6 @@ position = Vector2(310, 497)
 [node name="player" parent="." instance=ExtResource("1_2q6dc")]
 position = Vector2(504, 320)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(0, 3)
-zoom = Vector2(2, 2)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_mx8sn")
 format = 2
@@ -52,3 +49,9 @@ offset_right = 961.0
 offset_bottom = 501.0
 text = "Hover over object and click [Q] to cancel possession."
 autowrap_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("TargetNode")]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+script = ExtResource("5_ppgk2")
+TargetNode = NodePath("../player")
