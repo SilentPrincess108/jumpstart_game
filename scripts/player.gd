@@ -9,7 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var possessing = false
 
 func _ready() -> void:
-	position = Vector2(600, 300)
+	position = Vector2(0, 0)
 	#var receiver = get_node("/root/PopUps")
 	#receiver.connect("item_possessed", is_possessing)
 
