@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 			print("Item possessed")
 			current_target.possessed = true
 			PossessionManager.selected_object = current_target
-			HideItemPopup()
 	elif current_target == PossessionManager.selected_object and Input.is_action_just_pressed("De-possess"):
 		current_target.possessed = false
 		PossessionManager.selected_object = null

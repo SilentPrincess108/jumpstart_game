@@ -6,7 +6,10 @@ class_name CustomCamera
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	limit_left = 0
+	limit_top = 0
+	limit_right = 1280
+	limit_bottom = 720
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
