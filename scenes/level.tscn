@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://s8kvtdt24idp"]
+[gd_scene load_steps=8 format=3 uid="uid://s8kvtdt24idp"]
 
 [ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://c6swdlqevgmh0" path="res://scenes/bucket.tscn" id="2_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://dgjejad00rb20" path="res://scenes/bot.tscn" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://b63al0xp2glfi" path="res://scenes/lightswitch.tscn" id="4_2r41h"]
 [ext_resource type="Texture2D" uid="uid://b41rveve1bgca" path="res://assets/sprites/tileset.png" id="4_ppgk2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r41h"]
@@ -49,6 +50,10 @@ position = Vector2(177, -147)
 
 [node name="bucket" parent="Items" instance=ExtResource("2_mx8sn")]
 position = Vector2(-183, -115)
+
+[node name="lightswitch" parent="Items" instance=ExtResource("4_2r41h")]
+position = Vector2(432, 49)
+scale = Vector2(2.5, 2.5)
 
 [node name="player" parent="." instance=ExtResource("1_2q6dc")]
 position = Vector2(1, 190)

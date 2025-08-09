@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b63al0xp2glfi"]
+
+[ext_resource type="Script" uid="uid://bkj8p3kpdqdv5" path="res://scripts/lightswitch.gd" id="1_3pucv"]
+[ext_resource type="Texture2D" uid="uid://dmqq4p7iqpp1o" path="res://assets/sprites/lightswitch_off.png" id="1_ouvx4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pucv"]
+size = Vector2(20, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1ajc"]
+size = Vector2(20, 24)
+
+[node name="lightswitch" type="CharacterBody2D"]
+script = ExtResource("1_3pucv")
+item_name = "Lightswitch"
+item_desc = "A simple lightswitch."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ouvx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3pucv")
+
+[node name="HoverArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+shape = SubResource("RectangleShape2D_x1ajc")
