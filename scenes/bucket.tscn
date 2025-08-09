@@ -9,6 +9,7 @@
 
 [node name="bucket" type="CharacterBody2D"]
 position = Vector2(6, -5)
+scale = Vector2(2, 2)
 script = ExtResource("1_4mj0c")
 item_name = "Bucket"
 item_desc = "A red bucket that smells weird"

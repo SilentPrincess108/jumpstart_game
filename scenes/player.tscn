@@ -9,6 +9,7 @@ size = Vector2(53, 62)
 [node name="player" type="CharacterBody2D"]
 z_index = 1
 position = Vector2(249, 363)
+scale = Vector2(2, 2)
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

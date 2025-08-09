@@ -34,6 +34,7 @@ sources/1 = SubResource("TileSetAtlasSource_2r41h")
 [node name="Level" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_mx8sn")
 format = 2
 layer_0/name = "background"
@@ -69,6 +70,4 @@ text = "Hover over object and click [Q] to cancel possession."
 autowrap_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-zoom = Vector2(2, 2)
 position_smoothing_enabled = true

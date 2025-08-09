@@ -14,19 +14,19 @@ offset_bottom = 40.0
 [node name="Start" type="Button" parent="ButtonManager"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 816.0
-offset_top = 274.0
-offset_right = 1191.0
-offset_bottom = 487.0
+offset_left = 457.0
+offset_top = 110.0
+offset_right = 832.0
+offset_bottom = 323.0
 text = "Start"
 
 [node name="Quit" type="Button" parent="ButtonManager"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 815.0
-offset_top = 532.0
-offset_right = 1186.0
-offset_bottom = 744.0
+offset_left = 456.0
+offset_top = 368.0
+offset_right = 827.0
+offset_bottom = 580.0
 text = "Quit"
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
