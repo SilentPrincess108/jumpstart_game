@@ -9,14 +9,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var possessing = false
 
 func _ready() -> void:
-	position = Vector2(0, 0)
+	position = Vector2(0, 180)
 	#var receiver = get_node("/root/PopUps")
 	#receiver.connect("item_possessed", is_possessing)
 
 func _physics_process(delta: float) -> void:
 	is_possessing()
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	#if not is_on_floor():
+		#velocity.y += gravity * delta
 	if not possessing:
 		get_input(Input, delta)
 

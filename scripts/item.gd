@@ -23,9 +23,9 @@ func _ready() -> void:
 	hover_area.mouse_exited.connect(_on_mouse_exited)
 	
 func _physics_process(delta: float) -> void:
-	if possessed:
-		if not is_on_floor():
+	if not is_on_floor(): #fix here
 			velocity.y += gravity * delta
+	if possessed:
 		get_input(Input, delta)
 
 func _on_mouse_entered() -> void:
