@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://j3wdvd33gih4"]
+
+[ext_resource type="Script" uid="uid://dh3ujp2kpuwn8" path="res://scripts/key.gd" id="1_fttkb"]
+[ext_resource type="Texture2D" uid="uid://dltkn7p7mil1c" path="res://assets/sprites/key.png" id="1_yk2u2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fttkb"]
+size = Vector2(15, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy8tx"]
+size = Vector2(15, 7)
+
+[node name="key" type="CharacterBody2D"]
+script = ExtResource("1_fttkb")
+item_name = "Key"
+item_desc = "A gold key. Can be used to open locked areas. Use WASD to move and ENTER to unlock."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yk2u2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_fttkb")
+
+[node name="HoverArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_wy8tx")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)

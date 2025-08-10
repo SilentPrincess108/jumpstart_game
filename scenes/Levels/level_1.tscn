@@ -1,16 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://s8kvtdt24idp"]
+[gd_scene load_steps=14 format=3 uid="uid://s8kvtdt24idp"]
 
-[ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="1_2q6dc"]
-[ext_resource type="PackedScene" uid="uid://c6swdlqevgmh0" path="res://scenes/bucket.tscn" id="2_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://dgjejad00rb20" path="res://scenes/bot.tscn" id="3_w8frs"]
-[ext_resource type="PackedScene" uid="uid://b63al0xp2glfi" path="res://scenes/lightswitch.tscn" id="4_2r41h"]
-[ext_resource type="Texture2D" uid="uid://b41rveve1bgca" path="res://assets/sprites/tileset.png" id="4_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://cyakqd2nq1ofd" path="res://scenes/door.tscn" id="5_2r41h"]
-[ext_resource type="PackedScene" uid="uid://b64vxu788q2qb" path="res://scenes/invisible_walls.tscn" id="7_klq6b"]
-[ext_resource type="PackedScene" uid="uid://caskaugqeb86m" path="res://scenes/cardboard_box.tscn" id="8_b121j"]
+[ext_resource type="Texture2D" uid="uid://b41rveve1bgca" path="res://assets/sprites/tileset.png" id="1_xxpsm"]
+[ext_resource type="PackedScene" uid="uid://b64vxu788q2qb" path="res://scenes/invisible_walls.tscn" id="2_j85eu"]
+[ext_resource type="PackedScene" uid="uid://cyakqd2nq1ofd" path="res://scenes/door.tscn" id="3_4p1o3"]
+[ext_resource type="PackedScene" uid="uid://dgjejad00rb20" path="res://scenes/bot.tscn" id="4_14nfc"]
+[ext_resource type="PackedScene" uid="uid://c6swdlqevgmh0" path="res://scenes/bucket.tscn" id="5_ngn3o"]
+[ext_resource type="PackedScene" uid="uid://j3wdvd33gih4" path="res://scenes/key.tscn" id="6_iiv34"]
+[ext_resource type="PackedScene" uid="uid://caskaugqeb86m" path="res://scenes/cardboard_box.tscn" id="7_vtd0g"]
+[ext_resource type="PackedScene" uid="uid://b63al0xp2glfi" path="res://scenes/lightswitch.tscn" id="8_hk2jt"]
+[ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="9_5gowt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r41h"]
-texture = ExtResource("4_ppgk2")
+texture = ExtResource("1_xxpsm")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -53,7 +54,7 @@ gradient = SubResource("Gradient_ppgk2")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Level" type="Node2D"]
+[node name="level 1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -83,7 +84,7 @@ layout_mode = 2
 text = "De-possess: hover over the same object and click [Q] to cancel possession."
 autowrap_mode = 2
 
-[node name="InvisibleWalls" parent="." instance=ExtResource("7_klq6b")]
+[node name="InvisibleWalls" parent="." instance=ExtResource("2_j85eu")]
 
 [node name="Light" type="Node" parent="."]
 
@@ -107,27 +108,37 @@ blend_mode = 1
 
 [node name="Items" type="Node" parent="."]
 
-[node name="door" parent="Items" instance=ExtResource("5_2r41h")]
+[node name="door" parent="Items" instance=ExtResource("3_4p1o3")]
 position = Vector2(560, 128)
 scale = Vector2(5, 5)
 
-[node name="bot" parent="Items" instance=ExtResource("3_w8frs")]
-position = Vector2(331, -145)
-
-[node name="bucket" parent="Items" instance=ExtResource("2_mx8sn")]
-position = Vector2(-183, -115)
-
-[node name="cardboard_box" parent="Items" instance=ExtResource("8_b121j")]
-position = Vector2(166, -131)
-scale = Vector2(3, 3)
-
-[node name="lightswitch" parent="Items" instance=ExtResource("4_2r41h")]
+[node name="lightswitch" parent="Items" instance=ExtResource("8_hk2jt")]
 position = Vector2(319, 93)
 scale = Vector2(2.5, 2.5)
 
-[node name="player" parent="." instance=ExtResource("1_2q6dc")]
+[node name="bot" parent="Items" instance=ExtResource("4_14nfc")]
+position = Vector2(331, -145)
+
+[node name="bucket" parent="Items" instance=ExtResource("5_ngn3o")]
+position = Vector2(-183, -115)
+
+[node name="key" parent="Items" instance=ExtResource("6_iiv34")]
+position = Vector2(314, 277)
+scale = Vector2(3, 3)
+
+[node name="cardboard_box" parent="Items" instance=ExtResource("7_vtd0g")]
+position = Vector2(166, -131)
+scale = Vector2(3, 3)
+
+[node name="player" parent="." instance=ExtResource("9_5gowt")]
 position = Vector2(1, 190)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[connection signal="body_entered" from="Items/door" to="Items/key" method="_on_door_body_entered"]
+[connection signal="body_entered" from="Items/door" to="player" method="_on_door_body_entered"]
+[connection signal="body_exited" from="Items/door" to="Items/key" method="_on_door_body_exited"]
+[connection signal="door_opened" from="Items/key" to="Items/door" method="_on_key_door_opened"]
+[connection signal="spawn_key" from="Items/cardboard_box" to="Items/key" method="_on_cardboard_box_spawn_key"]

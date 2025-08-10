@@ -30,7 +30,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor(): #fix here
 			velocity.y += gravity * delta
 	if possessed:
+		modulate = Color(0.2, 0, 0)
 		get_input(Input, delta)
+	else:
+		modulate = Color(1, 1, 1)
 	if ray_cast.is_colliding() and PossessionManager.selected_object == self:
 		var collider = ray_cast.get_collider()
 		if collider is CharacterBody2D:

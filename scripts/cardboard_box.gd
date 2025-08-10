@@ -3,6 +3,9 @@ extends "res://scripts/item.gd"
 var open = load("res://assets/sprites/cardboard_box_open.png")
 var closed = load("res://assets/sprites/cardboard_box.png")
 
+signal spawn_key
+var key_spawned: bool = false
+
 func _ready() -> void:
 	hover_area.mouse_entered.connect(_on_mouse_entered)
 	hover_area.mouse_exited.connect(_on_mouse_exited)
@@ -17,8 +20,11 @@ func _physics_process(delta: float) -> void:
 		var collider = ray_cast.get_collider()
 		if collider is CharacterBody2D:
 			push_object(collider, delta)
-	if self.position.y > 200:
-		sprite.texture = open
+	if self.position.y > 100:
+		if key_spawned != true:
+			sprite.texture = open
+			emit_signal("spawn_key")
+			key_spawned = true
 	
 	move_and_slide()
 
