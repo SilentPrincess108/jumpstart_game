@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://s8kvtdt24idp"]
+[gd_scene load_steps=13 format=3 uid="uid://s8kvtdt24idp"]
 
 [ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://c6swdlqevgmh0" path="res://scenes/bucket.tscn" id="2_mx8sn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b41rveve1bgca" path="res://assets/sprites/tileset.png" id="4_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://cyakqd2nq1ofd" path="res://scenes/door.tscn" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://b64vxu788q2qb" path="res://scenes/invisible_walls.tscn" id="7_klq6b"]
+[ext_resource type="PackedScene" uid="uid://caskaugqeb86m" path="res://scenes/cardboard_box.tscn" id="8_b121j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r41h"]
 texture = ExtResource("4_ppgk2")
@@ -63,6 +64,25 @@ layer_0/tile_data = PackedInt32Array(589804, 65537, 0, 589805, 65537, 0, 589806,
 layer_1/name = "mid"
 layer_1/tile_data = PackedInt32Array(655340, 1, 0, 655341, 1, 0, 655342, 1, 0, 655343, 1, 0, 655344, 1, 0, 655345, 1, 0, 655346, 1, 0, 655347, 1, 0, 655348, 1, 0, 655349, 1, 0, 655350, 1, 0, 655351, 1, 0, 655352, 1, 0, 655353, 1, 0, 655354, 1, 0, 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 720876, 1, 0, 720877, 1, 0, 720878, 1, 0, 720879, 1, 0, 720880, 1, 0, 720881, 1, 0, 720882, 1, 0, 720883, 1, 0, 720884, 1, 0, 720885, 1, 0, 720886, 1, 0, 720887, 1, 0, 720888, 1, 0, 720889, 1, 0, 720890, 1, 0, 720891, 1, 0, 720892, 1, 0, 720893, 1, 0, 720894, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 786412, 1, 0, 786413, 1, 0, 786414, 1, 0, 786415, 1, 0, 786416, 1, 0, 786417, 1, 0, 786418, 1, 0, 786419, 1, 0, 786420, 1, 0, 786421, 1, 0, 786422, 1, 0, 786423, 1, 0, 786424, 1, 0, 786425, 1, 0, 786426, 1, 0, 786427, 1, 0, 786428, 1, 0, 786429, 1, 0, 786430, 1, 0, 786431, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, -131087, 1, 1, -131086, 1, 3, -131085, 1, 3, -131084, 1, 3, -131083, 1, 3, -131082, 1, 3, -131081, 1, 3, -131080, 1, 3, -131079, 1, 3, -131078, 1, 3, -196606, 1, 1, -196605, 1, 3, -196604, 1, 3, -196603, 1, 3, -196602, 1, 3, -196601, 1, 3, -196600, 1, 3, -196599, 1, 3, -196598, 1, 3, -196597, 1, 3, -131077, 131073, 1, -196596, 131073, 1, -589829, 458753, 0, -589830, 327681, 2, -589831, 327681, 2, -589832, 327681, 2, -589833, 327681, 2, -589834, 327681, 2, -589835, 327681, 2, -589836, 327681, 2, -589837, 327681, 2, -589838, 327681, 2, -589839, 327681, 2, -589840, 327681, 0, -655356, 327681, 0, -655355, 327681, 2, -655354, 327681, 2, -655353, 327681, 2, -655352, 327681, 2, -655351, 327681, 2, -655350, 327681, 2, -655349, 327681, 2, -655348, 327681, 2, -655347, 327681, 2, -655346, 327681, 2, -655345, 458753, 0)
 
+[node name="Instructions" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 50)
+offset_left = -589.0
+offset_top = -45.0
+offset_right = -189.0
+offset_bottom = 75.0
+
+[node name="Label" type="Label" parent="Instructions"]
+custom_minimum_size = Vector2(400, 25)
+layout_mode = 2
+text = "Possess: hover over an object and click [E] to possess."
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Instructions"]
+custom_minimum_size = Vector2(400, 25)
+layout_mode = 2
+text = "De-possess: hover over the same object and click [Q] to cancel possession."
+autowrap_mode = 2
+
 [node name="InvisibleWalls" parent="." instance=ExtResource("7_klq6b")]
 
 [node name="Light" type="Node" parent="."]
@@ -87,6 +107,10 @@ blend_mode = 1
 
 [node name="Items" type="Node" parent="."]
 
+[node name="door" parent="Items" instance=ExtResource("5_2r41h")]
+position = Vector2(560, 128)
+scale = Vector2(5, 5)
+
 [node name="bot" parent="Items" instance=ExtResource("3_w8frs")]
 position = Vector2(177, -147)
 
@@ -97,28 +121,13 @@ position = Vector2(-183, -115)
 position = Vector2(319, 93)
 scale = Vector2(2.5, 2.5)
 
-[node name="Area2D" parent="Items" instance=ExtResource("5_2r41h")]
-position = Vector2(560, 128)
-scale = Vector2(5, 5)
-
 [node name="player" parent="." instance=ExtResource("1_2q6dc")]
 position = Vector2(1, 190)
-
-[node name="Label" type="Label" parent="."]
-offset_left = -319.0
-offset_top = -54.0
-offset_right = -144.0
-offset_bottom = -5.0
-text = "Hover over object and click [E] to possess."
-autowrap_mode = 2
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 159.0
-offset_top = -51.0
-offset_right = 337.0
-offset_bottom = 24.0
-text = "Hover over object and click [Q] to cancel possession."
-autowrap_mode = 2
+collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="cardboard_box" parent="." instance=ExtResource("8_b121j")]
+position = Vector2(-396, -134)
+scale = Vector2(3, 3)

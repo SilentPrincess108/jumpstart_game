@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://caskaugqeb86m"]
+
+[ext_resource type="Script" uid="uid://cmdg3v50ru8hb" path="res://scripts/item.gd" id="1_217xj"]
+[ext_resource type="Texture2D" uid="uid://scu3wtsq2pvx" path="res://assets/sprites/cardboard_box.png" id="1_efq2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_217xj"]
+size = Vector2(32, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efq2n"]
+size = Vector2(32, 29)
+
+[node name="cardboard_box" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_217xj")
+item_name = "Cardboard Box"
+item_desc = "A cardboard box filled with unusable items."
+mass = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_efq2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_217xj")
+
+[node name="HoverArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_efq2n")
