@@ -15,6 +15,10 @@ func _ready() -> void:
 	point_light.enabled = false
 	point_light2.enabled = false
 
+func _physics_process(delta: float) -> void:
+	if possessed:
+		get_input(Input, delta)
+
 func get_input(event, delta):
 	#Check for key presses
 	if event.is_action_pressed("up"):

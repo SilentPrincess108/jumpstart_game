@@ -31,6 +31,11 @@ func _physics_process(delta: float) -> void:
 			velocity.y += gravity * delta
 	if possessed:
 		get_input(Input, delta)
+	if ray_cast.is_colliding() and PossessionManager.selected_object == self:
+		var collider = ray_cast.get_collider()
+		if collider is CharacterBody2D:
+			push_object(collider, delta)
+	move_and_slide()
 		
 
 func _on_mouse_entered() -> void:
@@ -51,12 +56,6 @@ func get_input(event, delta):
 		position.x += (SPEED * delta) - mass
 		sprite.flip_h = false
 		ray_cast.target_position = raycast_init
-	move_and_slide()
-	
-	if ray_cast.is_colliding():
-		var collider = ray_cast.get_collider()
-		if collider is CharacterBody2D:
-			push_object(collider, delta)
 
 func push_object(target, delta):
 	var dir = (target.position - position).normalized()

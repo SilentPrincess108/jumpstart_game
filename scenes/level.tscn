@@ -112,10 +112,14 @@ position = Vector2(560, 128)
 scale = Vector2(5, 5)
 
 [node name="bot" parent="Items" instance=ExtResource("3_w8frs")]
-position = Vector2(177, -147)
+position = Vector2(331, -145)
 
 [node name="bucket" parent="Items" instance=ExtResource("2_mx8sn")]
 position = Vector2(-183, -115)
+
+[node name="cardboard_box" parent="Items" instance=ExtResource("8_b121j")]
+position = Vector2(166, -131)
+scale = Vector2(3, 3)
 
 [node name="lightswitch" parent="Items" instance=ExtResource("4_2r41h")]
 position = Vector2(319, 93)
@@ -127,7 +131,3 @@ collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
-
-[node name="cardboard_box" parent="." instance=ExtResource("8_b121j")]
-position = Vector2(-396, -134)
-scale = Vector2(3, 3)

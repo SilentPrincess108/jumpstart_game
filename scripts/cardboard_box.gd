@@ -8,6 +8,20 @@ func _ready() -> void:
 	hover_area.mouse_exited.connect(_on_mouse_exited)
 	sprite.texture = closed
 
+func _physics_process(delta: float) -> void:
+	if not is_on_floor(): #fix here
+		velocity.y += gravity * delta
+	if possessed:
+		get_input(Input, delta)
+	if ray_cast.is_colliding() and PossessionManager.selected_object == self:
+		var collider = ray_cast.get_collider()
+		if collider is CharacterBody2D:
+			push_object(collider, delta)
+	if self.position.y > 200:
+		sprite.texture = open
+	
+	move_and_slide()
+
 func get_input(event, delta):
 	#Check for movement
 	if event.is_action_pressed("left"):
@@ -18,7 +32,5 @@ func get_input(event, delta):
 		position.x += (SPEED * delta) - mass
 		sprite.flip_h = false
 		ray_cast.target_position = raycast_init
-	if event.is_action_pressed("Open"):
-		sprite.texture = open
 	
 	move_and_slide()
