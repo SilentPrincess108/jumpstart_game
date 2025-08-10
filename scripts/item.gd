@@ -5,12 +5,15 @@ extends CharacterBody2D
 @onready var hover_area: Area2D = $HoverArea
 @onready var sprite: Sprite2D = $Sprite2D
 
+@onready var ray_cast: RayCast2D = $RayCast2D
+@onready var raycast_init = ray_cast.get_target_position()
 
 #vars for item data
 @export var item_name: String = "Name"
 @export var item_desc: String = "This is an item"
 @export var energy: int = 0; #amnt of energy needed to possess object
 @export var mass: int = 0 #higher -> slower -> greater illusion of weight
+@export var push_force: int = 80;
 
 #var for whether this object is possessed or not
 var possessed: bool = false
@@ -28,6 +31,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y += gravity * delta
 	if possessed:
 		get_input(Input, delta)
+		
 
 func _on_mouse_entered() -> void:
 	PopUps.ItemPopUp(item_name, item_desc, self)
@@ -42,7 +46,19 @@ func get_input(event, delta):
 	if event.is_action_pressed("left"):
 		position.x -= (SPEED * delta) - mass
 		sprite.flip_h = true
+		ray_cast.target_position = raycast_init * -1
 	elif event.is_action_pressed("right"):
 		position.x += (SPEED * delta) - mass
 		sprite.flip_h = false
+		ray_cast.target_position = raycast_init
 	move_and_slide()
+	
+	if ray_cast.is_colliding():
+		var collider = ray_cast.get_collider()
+		if collider is CharacterBody2D:
+			push_object(collider, delta)
+
+func push_object(target, delta):
+	var dir = (target.position - position).normalized()
+	target.velocity += dir * push_force * delta
+	target.move_and_slide()
