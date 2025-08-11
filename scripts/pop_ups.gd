@@ -2,12 +2,15 @@ extends Control
 
 @onready var item: Label = %Name
 @onready var info: Label = %Desc
+@onready var Energy: Label = %Energy
+
 var current_target = null #to track hovered object
 #signal item_possessed
 
-func ItemPopUp(item_name, desc, target):
+func ItemPopUp(item_name, energy, desc, target):
 	var mouse_pos = get_viewport().get_mouse_position()
 	item.text = item_name
+	Energy.text = "Req. energy: " + str(energy)
 	info.text = desc
 	current_target = target
 	%ItemPopUp.popup(Rect2i(mouse_pos, %ItemPopUp.size))

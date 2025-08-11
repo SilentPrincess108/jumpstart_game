@@ -24,4 +24,5 @@ shape = SubResource("RectangleShape2D_uvdjg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
 shape = SubResource("RectangleShape2D_hpvv5")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)

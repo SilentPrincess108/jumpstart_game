@@ -13,6 +13,7 @@ size = Vector2(96, 64)
 script = ExtResource("1_0vvss")
 item_name = "TV"
 item_desc = "A 60 in flat screen TV. W to turn on. S to turn off."
+energy = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nqyhj")

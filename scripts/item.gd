@@ -11,7 +11,7 @@ extends CharacterBody2D
 #vars for item data
 @export var item_name: String = "Name"
 @export var item_desc: String = "This is an item"
-@export var energy: int = 0; #amnt of energy needed to possess object
+@export var energy: int = 0 #amnt of energy needed to possess object
 @export var mass: int = 0 #higher -> slower -> greater illusion of weight
 @export var push_force: int = 80;
 
@@ -30,10 +30,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor(): #fix here
 			velocity.y += gravity * delta
 	if possessed:
-		modulate = Color(0.2, 0, 0)
 		get_input(Input, delta)
-	else:
-		modulate = Color(1, 1, 1)
 	if ray_cast.is_colliding() and PossessionManager.selected_object == self:
 		var collider = ray_cast.get_collider()
 		if collider is CharacterBody2D:
@@ -42,9 +39,7 @@ func _physics_process(delta: float) -> void:
 		
 
 func _on_mouse_entered() -> void:
-	PopUps.ItemPopUp(item_name, item_desc, self)
-	#if Input.is_action_just_pressed("Possess"):
-		#PossessionManager.selected_object = self #sets object as possessed
+	PopUps.ItemPopUp(item_name, energy, item_desc, self)
 
 func _on_mouse_exited() -> void:
 	PopUps.HideItemPopup()

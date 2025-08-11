@@ -111,7 +111,7 @@ blend_mode = 1
 [node name="door" parent="Items" instance=ExtResource("3_4p1o3")]
 position = Vector2(560, 128)
 scale = Vector2(5, 5)
-collision_layer = 4
+item_desc = null
 
 [node name="lightswitch" parent="Items" instance=ExtResource("8_hk2jt")]
 position = Vector2(319, 93)
