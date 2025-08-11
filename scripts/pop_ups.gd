@@ -21,10 +21,15 @@ func HideItemPopup():
 
 func _process(_delta: float) -> void:
 	if current_target and Input.is_action_just_pressed("Possess"):
-		if PossessionManager.selected_object == null:
-			print("Item possessed")
-			current_target.possessed = true
-			PossessionManager.selected_object = current_target
+		if GameManager.ghost_power >= current_target.energy:
+			if PossessionManager.selected_object == null:
+				print("Item possessed")
+				current_target.possessed = true
+				PossessionManager.selected_object = current_target
+				GameManager.ghost_power -= current_target.energy
+				print(GameManager.ghost_power)
+		else:
+			print("Not enough energy!")
 	elif current_target == PossessionManager.selected_object and Input.is_action_just_pressed("De-possess"):
 		current_target.possessed = false
 		PossessionManager.selected_object = null

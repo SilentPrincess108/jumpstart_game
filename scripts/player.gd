@@ -5,8 +5,6 @@ const JUMP_VELOCITY = -400.0
 
 @onready var player = $Sprite2D
 
-@export var possessionEnergy: int = 10
-
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var possessing = false
 var in_door_zone: bool = false

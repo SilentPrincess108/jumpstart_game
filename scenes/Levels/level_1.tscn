@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://s8kvtdt24idp"]
+[gd_scene load_steps=16 format=3 uid="uid://s8kvtdt24idp"]
 
 [ext_resource type="Texture2D" uid="uid://b41rveve1bgca" path="res://assets/sprites/tileset.png" id="1_xxpsm"]
 [ext_resource type="PackedScene" uid="uid://b64vxu788q2qb" path="res://scenes/invisible_walls.tscn" id="2_j85eu"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://caskaugqeb86m" path="res://scenes/cardboard_box.tscn" id="7_vtd0g"]
 [ext_resource type="PackedScene" uid="uid://b63al0xp2glfi" path="res://scenes/lightswitch.tscn" id="8_hk2jt"]
 [ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="9_5gowt"]
+[ext_resource type="PackedScene" uid="uid://b6ga7f8fdtngm" path="res://scenes/pause_menu.tscn" id="10_j85eu"]
+[ext_resource type="PackedScene" uid="uid://d2800yhwvfnmg" path="res://scenes/ghost_energy.tscn" id="11_4p1o3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r41h"]
 texture = ExtResource("1_xxpsm")
@@ -84,6 +86,12 @@ layout_mode = 2
 text = "De-possess: hover over the same object and click [Q] to cancel possession."
 autowrap_mode = 2
 
+[node name="Label3" type="Label" parent="Instructions"]
+custom_minimum_size = Vector2(400, 25)
+layout_mode = 2
+text = "Click esc. to see options."
+autowrap_mode = 2
+
 [node name="InvisibleWalls" parent="." instance=ExtResource("2_j85eu")]
 
 [node name="Light" type="Node" parent="."]
@@ -137,6 +145,22 @@ collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="GhostEnergy" parent="." instance=ExtResource("11_4p1o3")]
+offset_left = -623.0
+offset_top = -343.0
+offset_right = -623.0
+offset_bottom = -343.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_j85eu")]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 3.0
+offset_bottom = 1.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="body_entered" from="Items/door" to="Items/key" method="_on_door_body_entered"]
 [connection signal="body_entered" from="Items/door" to="player" method="_on_door_body_entered"]
