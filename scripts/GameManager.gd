@@ -4,6 +4,7 @@ var door_unlocked: bool = false
 
 var ghost_power: int = 6
 var init_power = ghost_power
+var scare_counter: int = 0
 
 const FILE_BEGIN = "res://scenes/Levels/level_"
 
@@ -15,4 +16,7 @@ func next_level():
 	get_tree().change_scene_to_file(next_level_path)
 	
 	ghost_power = init_power
+	scare_counter = 0
+
+
 	

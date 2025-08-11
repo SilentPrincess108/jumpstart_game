@@ -14,6 +14,7 @@ collision_layer = 4
 script = ExtResource("1_3pucv")
 item_name = "Lightswitch"
 item_desc = "A simple lightswitch."
+scare_val = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

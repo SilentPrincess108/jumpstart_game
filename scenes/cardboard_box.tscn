@@ -16,6 +16,7 @@ script = ExtResource("1_217xj")
 item_name = "Cardboard Box"
 item_desc = "This is a cardboard box. It's heft indicate that there are many items inside."
 energy = 5
+scare_val = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -8)

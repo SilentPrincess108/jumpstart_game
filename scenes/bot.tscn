@@ -18,6 +18,7 @@ script = ExtResource("1_qpkb6")
 item_name = "AstroBot"
 item_desc = "This is Astrobot from the PlayStation game AstroBot"
 energy = 2
+scare_val = 1
 mass = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

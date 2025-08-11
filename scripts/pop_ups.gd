@@ -27,6 +27,7 @@ func _process(_delta: float) -> void:
 				current_target.possessed = true
 				PossessionManager.selected_object = current_target
 				GameManager.ghost_power -= current_target.energy
+				GameManager.scare_counter += current_target.scare_val
 				print(GameManager.ghost_power)
 		else:
 			print("Not enough energy!")

@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var item_name: String = "Name"
 @export var item_desc: String = "This is an item"
 @export var energy: int = 0 #amnt of energy needed to possess object
+@export var scare_val: int = 0
 @export var mass: int = 0 #higher -> slower -> greater illusion of weight
 @export var push_force: int = 80;
 
