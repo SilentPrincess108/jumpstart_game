@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpcsipr53r7cc"]
+
+[ext_resource type="Texture2D" uid="uid://bltumxodb70qf" path="res://assets/sprites/couch.png" id="1_r84cs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ydn4"]
+size = Vector2(90, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r84cs"]
+size = Vector2(90, 52)
+
+[node name="couch" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_r84cs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2ydn4")
+
+[node name="HoverArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+shape = SubResource("RectangleShape2D_r84cs")

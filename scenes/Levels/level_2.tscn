@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://myv82j61be3r"]
+[gd_scene load_steps=8 format=3 uid="uid://myv82j61be3r"]
 
 [ext_resource type="Texture2D" uid="uid://b41rveve1bgca" path="res://assets/sprites/tileset.png" id="1_b27d1"]
 [ext_resource type="PackedScene" uid="uid://drlydl3oc1twi" path="res://scenes/curtains.tscn" id="2_603ed"]
 [ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="3_04sgr"]
+[ext_resource type="PackedScene" uid="uid://bpcsipr53r7cc" path="res://scenes/couch.tscn" id="4_3s172"]
+[ext_resource type="PackedScene" uid="uid://1q8se1xcaun" path="res://scenes/tv.tscn" id="4_pyh4d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_603ed"]
 texture = ExtResource("1_b27d1")
@@ -58,7 +60,17 @@ layer_1/tile_data = PackedInt32Array(-589823, 0, 3, -393215, 0, 3, -589822, 0, 3
 position = Vector2(-324, -132)
 scale = Vector2(6, 6)
 
+[node name="TV" parent="Items" instance=ExtResource("4_pyh4d")]
+position = Vector2(285, 28)
+scale = Vector2(5, 5)
+collision_layer = 4
+
+[node name="couch" parent="Items" instance=ExtResource("4_3s172")]
+position = Vector2(-320, 144)
+scale = Vector2(6, 6)
+collision_layer = 4
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("3_04sgr")]
-position = Vector2(-390, 165)
+position = Vector2(151, 186)
