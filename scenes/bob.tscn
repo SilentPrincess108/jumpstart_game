@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5j41vcm5kwdr"]
+
+[ext_resource type="Texture2D" uid="uid://bdivy258la7lj" path="res://assets/sprites/person_neutral.png" id="1_75wmj"]
+[ext_resource type="Script" uid="uid://cdmu0opkogmao" path="res://scripts/bob.gd" id="1_kf1ye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf1ye"]
+size = Vector2(36, 106)
+
+[node name="Bob" type="CharacterBody2D"]
+script = ExtResource("1_kf1ye")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_75wmj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_kf1ye")
