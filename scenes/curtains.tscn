@@ -68,7 +68,8 @@ size = Vector2(83, 55)
 script = ExtResource("1_xy60e")
 item_name = "Curtains"
 item_desc = "Light curtains that block light quite well. A to Open. D to Close."
-scare_val = 2
+energy = 2
+scare_val = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l0k2d")

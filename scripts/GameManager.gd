@@ -15,8 +15,11 @@ func next_level():
 	var next_level_path = FILE_BEGIN + str(next_level_number) + ".tscn"
 	get_tree().change_scene_to_file(next_level_path)
 	
-	ghost_power = init_power
+	ghost_power = init_power + 1
 	scare_counter = 0
 
+func reload():
+	ghost_power = init_power
+	scare_counter = 0
 
 	
