@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://drlydl3oc1twi"]
+
+[ext_resource type="Texture2D" uid="uid://bqui7rrx4oahn" path="res://assets/sprites/curtains1.png" id="1_a67pq"]
+[ext_resource type="Script" uid="uid://cnms4mk7stsa6" path="res://scripts/curtains.gd" id="1_xy60e"]
+[ext_resource type="Texture2D" uid="uid://c3n7nkyqp2uw6" path="res://assets/sprites/curtains2.png" id="2_xy60e"]
+[ext_resource type="Texture2D" uid="uid://bkv08l7v7lfrg" path="res://assets/sprites/curtains3.png" id="3_ni6hs"]
+[ext_resource type="Texture2D" uid="uid://dxbewptybswby" path="res://assets/sprites/curtains4.png" id="4_7s8pw"]
+[ext_resource type="Texture2D" uid="uid://bn0ufnc7eoi0l" path="res://assets/sprites/curtains5.png" id="5_5dson"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l0k2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5dson")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7s8pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ni6hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xy60e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_a67pq")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a67pq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a67pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xy60e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ni6hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7s8pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5dson")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00fbv"]
+size = Vector2(96, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy60e"]
+size = Vector2(83, 55)
+
+[node name="curtains" type="CharacterBody2D"]
+script = ExtResource("1_xy60e")
+item_name = "Curtains"
+item_desc = "Light curtains that block light quite well. A to Open. D to Close."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l0k2d")
+animation = &"close"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_00fbv")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+
+[node name="HoverArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_xy60e")
