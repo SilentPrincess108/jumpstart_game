@@ -1,8 +1,5 @@
 extends "res://scripts/item.gd"
 
-var on = load("res://assets/sprites/lightswitch_on.png")
-var off = load("res://assets/sprites/lightswitch_off.png")
-
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:

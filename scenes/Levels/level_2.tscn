@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://myv82j61be3r"]
+[gd_scene load_steps=11 format=3 uid="uid://myv82j61be3r"]
 
 [ext_resource type="Texture2D" uid="uid://b41rveve1bgca" path="res://assets/sprites/tileset.png" id="1_b27d1"]
 [ext_resource type="PackedScene" uid="uid://drlydl3oc1twi" path="res://scenes/curtains.tscn" id="2_603ed"]
 [ext_resource type="PackedScene" uid="uid://baxpx50ne2e6i" path="res://scenes/player.tscn" id="3_04sgr"]
 [ext_resource type="PackedScene" uid="uid://bpcsipr53r7cc" path="res://scenes/couch.tscn" id="4_3s172"]
 [ext_resource type="PackedScene" uid="uid://1q8se1xcaun" path="res://scenes/tv.tscn" id="4_pyh4d"]
+[ext_resource type="PackedScene" uid="uid://b64vxu788q2qb" path="res://scenes/invisible_walls.tscn" id="6_yye74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_603ed"]
 texture = ExtResource("1_b27d1")
@@ -43,6 +44,15 @@ texture = ExtResource("1_b27d1")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_603ed")
 
+[sub_resource type="Gradient" id="Gradient_ppgk2"]
+offsets = PackedFloat32Array(0, 0.714286, 0.720779)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3s172"]
+gradient = SubResource("Gradient_ppgk2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="level 2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -54,6 +64,13 @@ layer_0/tile_data = PackedInt32Array(786411, 0, 0, 786412, 0, 0, 786413, 0, 0, 7
 layer_1/name = "mid"
 layer_1/tile_data = PackedInt32Array(-589823, 0, 3, -393215, 0, 3, -589822, 0, 3, -393214, 0, 3, -589821, 0, 3, -393213, 0, 3, -589820, 0, 3, -393212, 0, 3, -589819, 0, 3, -393211, 0, 3, -589818, 0, 3, -393210, 0, 3, -589817, 0, 3, -393209, 0, 3, -589816, 0, 3, -393208, 0, 3, -589815, 0, 3, -393207, 0, 3, -589814, 0, 3, -393206, 0, 3, -589813, 0, 3, -393205, 0, 3, -589812, 0, 3, -393204, 0, 3, -589811, 0, 3, -393203, 0, 3, -589810, 0, 3, -393202, 0, 3, -589809, 0, 3, -393201, 0, 3, -589808, 0, 3, -393200, 0, 3, -589807, 131072, 1, -393199, 131072, 1, -589824, 0, 1, -393216, 0, 1)
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(286, 27.5)
+scale = Vector2(9.25392, 5.23438)
+color = Color(0.811765, 0.819608, 0.819608, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_3s172")
+
 [node name="Items" type="Node" parent="."]
 
 [node name="curtains" parent="Items" instance=ExtResource("2_603ed")]
@@ -64,6 +81,7 @@ scale = Vector2(6, 6)
 position = Vector2(285, 28)
 scale = Vector2(5, 5)
 collision_layer = 4
+item_desc = "A 60 inch flat screen TV. W to turn on. S to turn off."
 
 [node name="couch" parent="Items" instance=ExtResource("4_3s172")]
 position = Vector2(-320, 144)
@@ -74,3 +92,5 @@ collision_layer = 4
 
 [node name="player" parent="." instance=ExtResource("3_04sgr")]
 position = Vector2(151, 186)
+
+[node name="InvisibleWalls" parent="." instance=ExtResource("6_yye74")]

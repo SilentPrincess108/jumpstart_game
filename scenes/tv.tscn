@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://1q8se1xcaun"]
+[gd_scene load_steps=5 format=3 uid="uid://1q8se1xcaun"]
 
+[ext_resource type="Script" uid="uid://bo5x1w3ihi12q" path="res://scripts/tv.gd" id="1_0vvss"]
 [ext_resource type="Texture2D" uid="uid://c7pbjeqwr3xts" path="res://assets/sprites/TV_off.png" id="1_nqyhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vvss"]
@@ -9,6 +10,9 @@ size = Vector2(96, 64)
 size = Vector2(96, 64)
 
 [node name="TV" type="CharacterBody2D"]
+script = ExtResource("1_0vvss")
+item_name = "TV"
+item_desc = "A 60 in flat screen TV. W to turn on. S to turn off."
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nqyhj")

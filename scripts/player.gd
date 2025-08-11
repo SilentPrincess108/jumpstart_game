@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 
 @onready var player = $Sprite2D
 
+@export var possessionEnergy: int = 10
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var possessing = false
@@ -39,7 +40,7 @@ func get_input(event, delta):
 		player.flip_h = false
 	move_and_slide()
 	if GameManager.door_unlocked and in_door_zone:
-		print("Level done")
+		GameManager.next_level()
 
 
 func _on_door_body_entered(body: CharacterBody2D) -> void:
