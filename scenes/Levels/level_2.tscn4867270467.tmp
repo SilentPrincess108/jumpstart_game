@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://myv82j61be3r"]
+[gd_scene load_steps=14 format=3 uid="uid://myv82j61be3r"]
 
 [ext_resource type="Texture2D" uid="uid://b41rveve1bgca" path="res://assets/sprites/tileset.png" id="1_b27d1"]
 [ext_resource type="PackedScene" uid="uid://drlydl3oc1twi" path="res://scenes/curtains.tscn" id="2_603ed"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://d2800yhwvfnmg" path="res://scenes/values.tscn" id="7_v740s"]
 [ext_resource type="PackedScene" uid="uid://b6ga7f8fdtngm" path="res://scenes/pause_menu.tscn" id="8_048ga"]
 [ext_resource type="PackedScene" uid="uid://b5j41vcm5kwdr" path="res://scenes/bob.tscn" id="9_2fma4"]
-[ext_resource type="PackedScene" uid="uid://bh6a3pkt38cy4" path="res://scenes/win_screen.tscn" id="9_a0dj8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_603ed"]
 texture = ExtResource("1_b27d1")
@@ -123,8 +122,6 @@ offset_right = 3.0
 offset_bottom = 1.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="WinScreen" parent="CanvasLayer" instance=ExtResource("9_a0dj8")]
 
 [node name="Bob" parent="." instance=ExtResource("9_2fma4")]
 z_index = 1

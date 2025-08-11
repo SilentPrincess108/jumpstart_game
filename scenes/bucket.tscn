@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://c3qfpguimpsgk" path="res://assets/sprites/bucket.png" id="2_4mj0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpkb6"]
+size = Vector2(18.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mj0c"]
+size = Vector2(18.5, 20)
 
 [node name="bucket" type="CharacterBody2D"]
 position = Vector2(6, -5)
@@ -18,23 +20,24 @@ item_desc = "A red bucket that smells weird"
 energy = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 5)
+position = Vector2(-6.25, 5)
 shape = SubResource("RectangleShape2D_qpkb6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6, 5)
-scale = Vector2(0.0205077, 0.0205077)
+position = Vector2(-6.27051, 4.72949)
+scale = Vector2(1.28381, 1.28381)
 texture = ExtResource("2_4mj0c")
 
 [node name="HoverArea" type="Area2D" parent="."]
 position = Vector2(-6, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_4mj0c")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-6, 12)
-target_position = Vector2(15, 0)
+target_position = Vector2(11.5, 0)
 collision_mask = 4
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

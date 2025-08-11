@@ -129,7 +129,8 @@ scale = Vector2(2.5, 2.5)
 position = Vector2(331, -145)
 
 [node name="bucket" parent="Items" instance=ExtResource("5_ngn3o")]
-position = Vector2(-183, -115)
+position = Vector2(-171, -131)
+scale = Vector2(3, 3)
 
 [node name="key" parent="Items" instance=ExtResource("6_iiv34")]
 position = Vector2(314, 277)
