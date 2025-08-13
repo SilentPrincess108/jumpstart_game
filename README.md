@@ -5,3 +5,5 @@ I made this project for Jumpstart V2 using Godot for the game design and program
 my first time making a game and using both Godot and Aseprite, it was challenging for me to adjust to both software, as well as
 learn the basics of Godot and GDScript! However, after hours of trial and error, I ended up learning a lot about game design, Godot and Aseprite!
 I finally feel like I'm making progress towards my dream of becoming a game dev (if not as a career, then a hobby)!
+
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
